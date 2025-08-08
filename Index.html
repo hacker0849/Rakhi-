@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Raksha Bandhan</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ffdee9, #b5fffc);
+        overflow-x: hidden;
+        text-align: center;
+    }
+
+    .page {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        color: #ff4081;
+        animation: fadeInDown 1.5s ease;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #444;
+        max-width: 600px;
+        animation: fadeInUp 1.5s ease;
+    }
+
+    button {
+        background: #ff4081;
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        margin-top: 20px;
+        animation: pulse 2s infinite;
+    }
+
+    button:hover {
+        background: #e73370;
+    }
+
+    @keyframes fadeInDown {
+        0% { opacity: 0; transform: translateY(-30px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(30px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .hidden {
+        opacity: 0;
+        transform: scale(0.95);
+        pointer-events: none;
+    }
+
+    /* Rakhi animation */
+    .rakhi {
+        width: 150px;
+        animation: spin 5s linear infinite;
+        margin-top: 20px;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0); }
+        to { transform: rotate(360deg); }
+    }
+</style>
+</head>
+<body>
+
+<div class="page" id="page1">
+    <h1>🌸 Happy Raksha Bandhan 🌸</h1>
+    <p>To the best sibling in the world — our bond is made of love, care, and countless memories.</p>
+    <img class="rakhi" src="https://png.pngtree.com/png-vector/20210819/ourmid/pngtree-rakhi-festival-raksha-bandhan-png-image_3830758.jpg" alt="Rakhi">
+    <button onclick="goToPage2()">Click for a Special Message 💌</button>
+</div>
+
+<div class="page hidden" id="page2">
+    <h1>💖 My Dear Brother/Sister 💖</h1>
+    <p>
+        No matter how much we fight or tease each other,<br>
+        you’re my forever best friend and my protector.<br>
+        You’re the reason I smile on my worst days,<br>
+        and the one I’ll always run to when life gets hard.<br><br>
+        On this Raksha Bandhan, I just want to say —<br>
+        I’m blessed to have you in my life ❤️
+    </p>
+    <img class="rakhi" src="https://png.pngtree.com/png-vector/20210819/ourmid/pngtree-rakhi-festival-raksha-bandhan-png-image_3830758.jpg" alt="Rakhi">
+</div>
+
+<script>
+    function goToPage2() {
+        document.getElementById('page1').classList.add('hidden');
+        setTimeout(() => {
+            document.getElementById('page2').classList.remove('hidden');
+        }, 500);
+    }
+</script>
+
+</body>
+</html>
