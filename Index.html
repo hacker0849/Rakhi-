@@ -1,120 +1,175 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Raksha Bandhan</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Raksha Bandhan — For My Sister</title>
 <style>
-    body {
-        margin: 0;
-        font-family: 'Poppins', sans-serif;
-        background: linear-gradient(135deg, #ffdee9, #b5fffc);
-        overflow-x: hidden;
-        text-align: center;
-    }
+:root{
+  --bg: #fff6f8;
+  --card: #ffffff;
+  --accent: #ff6f91;
+  --muted: #6b6b6b;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --radius: 18px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background: linear-gradient(180deg, #fff6f8 0%, #fff0f3 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+  overflow:hidden;
+}
+.page{
+  width:100%;
+  max-width:920px;
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .6s ease, opacity .6s ease;
+}
+.hidden{opacity:0;transform:translateX(100%)}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:36px;
+  text-align:center;
+  animation: enter .6s ease;
+}
+@keyframes enter {
+  from { transform: translateY(18px) scale(.995); opacity:0; }
+  to { transform: translateY(0) scale(1); opacity:1; }
+}
+header h1{margin:0;font-size:1.6rem;color:#312a2f;}
+.subtitle{margin:6px 0 18px;color:var(--muted);font-size:0.95rem}
+.center-visual{display:flex;justify-content:center;margin:22px 0;}
+.rakhi-svg{width:220px;height:220px;filter:drop-shadow(0 8px 18px rgba(255,110,140,0.18));transition:transform .45s cubic-bezier(.2,.9,.3,1)}
+.center-visual:hover .rakhi-svg{transform:translateY(-6px) rotate(-3deg)}
+.lead{color:var(--muted);margin-top:12px;font-size:1rem}
+.actions{margin-top:20px}
+.btn{
+  display:inline-block;text-decoration:none;
+  background:linear-gradient(90deg,var(--accent), #ff9aa2);
+  color:white;padding:12px 20px;border-radius:12px;
+  font-weight:600;
+  box-shadow:0 8px 20px rgba(255,110,140,0.16);
+  transition:transform .18s ease;
+  cursor:pointer;
+}
+.btn:hover{transform:translateY(-4px)}
+.small-note{margin-top:18px;color:#9b9b9b;font-size:0.85rem}
 
-    .page {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: opacity 1s ease, transform 1s ease;
-    }
-
-    h1 {
-        font-size: 2.5rem;
-        color: #ff4081;
-        animation: fadeInDown 1.5s ease;
-    }
-
-    p {
-        font-size: 1.2rem;
-        color: #444;
-        max-width: 600px;
-        animation: fadeInUp 1.5s ease;
-    }
-
-    button {
-        background: #ff4081;
-        color: white;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 30px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        margin-top: 20px;
-        animation: pulse 2s infinite;
-    }
-
-    button:hover {
-        background: #e73370;
-    }
-
-    @keyframes fadeInDown {
-        0% { opacity: 0; transform: translateY(-30px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-        0% { opacity: 0; transform: translateY(30px); }
-        100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
-
-    .hidden {
-        opacity: 0;
-        transform: scale(0.95);
-        pointer-events: none;
-    }
-
-    /* Rakhi animation */
-    .rakhi {
-        width: 150px;
-        animation: spin 5s linear infinite;
-        margin-top: 20px;
-    }
-
-    @keyframes spin {
-        from { transform: rotate(0); }
-        to { transform: rotate(360deg); }
-    }
+/* Page 2 styles */
+.message{text-align:left;margin:18px auto;max-width:760px;color:#3b2f34;line-height:1.6;font-size:1.03rem;padding:8px 12px;}
+.message p{margin:10px 0;}
+.poem{font-style:italic;background:linear-gradient(90deg,rgba(255,245,245,0.9),rgba(255,250,250,0.6));padding:12px;border-radius:10px;border-left:4px solid #ffd1dc;}
+.closing{margin-top:14px;font-weight:500}
+.hearts{display:flex;gap:12px;justify-content:center;margin-top:18px}
+.heart{font-size:28px;animation:pulse 1.6s infinite}
+.heart:nth-child(2){animation-delay:.2s}
+.heart:nth-child(3){animation-delay:.4s}
+@keyframes pulse{
+  0%{transform:scale(.9);opacity:.7}
+  50%{transform:scale(1.14);opacity:1}
+  100%{transform:scale(.9);opacity:.7}
+}
+.back{
+  background:transparent;border:0;color:#7a6167;
+  font-weight:600;cursor:pointer;padding:8px 12px;
+  border-radius:10px;transition:background .18s;
+  margin-bottom:16px;
+}
+.back:hover{background:rgba(0,0,0,0.03)}
+@media (max-width:640px){
+  .card{padding:20px}
+  .rakhi-svg{width:160px;height:160px}
+  header h1{font-size:1.25rem}
+  .message{font-size:0.98rem;padding:6px}
+}
 </style>
 </head>
 <body>
 
+<!-- Page 1 -->
 <div class="page" id="page1">
-    <h1>🌸 Happy Raksha Bandhan 🌸</h1>
-    <p>To the best sibling in the world — our bond is made of love, care, and countless memories.</p>
-    <img class="rakhi" src="https://png.pngtree.com/png-vector/20210819/ourmid/pngtree-rakhi-festival-raksha-bandhan-png-image_3830758.jpg" alt="Rakhi">
-    <button onclick="goToPage2()">Click for a Special Message 💌</button>
+  <div class="card">
+    <header>
+      <h1>To my sister — On Raksha Bandhan</h1>
+      <p class="subtitle">A small digital rakhi — with a big heart ❤️</p>
+    </header>
+    <section class="center-visual">
+      <svg class="rakhi-svg" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <radialGradient id="g" cx="50%" cy="30%">
+            <stop offset="0%" stop-color="#ffd1dc" />
+            <stop offset="100%" stop-color="#ff9aa2" />
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="80" r="46" fill="url(#g)" />
+        <circle cx="100" cy="80" r="30" fill="#fff8f9" />
+        <g transform="translate(100,80)">
+          <path d="M0,-28 L6,-18 L18,-15 L8,-6 L12,6 L0,0 L-12,6 L-8,-6 L-18,-15 L-6,-18 Z" fill="#ff6f91" opacity="0.95"/>
+        </g>
+        <line x1="10" y1="80" x2="60" y2="130" stroke="#ff8aa6" stroke-width="5" stroke-linecap="round"/>
+        <line x1="190" y1="80" x2="140" y2="130" stroke="#ff8aa6" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </section>
+    <p class="lead">Press the button below to open your special Rakhi message.</p>
+    <div class="actions">
+      <button class="btn" id="openRakhi">Open Your Message</button>
+    </div>
+    <footer class="small-note">Made with love ❤️</footer>
+  </div>
 </div>
 
+<!-- Page 2 -->
 <div class="page hidden" id="page2">
-    <h1>💖 My Dear Brother/Sister 💖</h1>
-    <p>
-        No matter how much we fight or tease each other,<br>
-        you’re my forever best friend and my protector.<br>
-        You’re the reason I smile on my worst days,<br>
-        and the one I’ll always run to when life gets hard.<br><br>
-        On this Raksha Bandhan, I just want to say —<br>
-        I’m blessed to have you in my life ❤️
-    </p>
-    <img class="rakhi" src="https://png.pngtree.com/png-vector/20210819/ourmid/pngtree-rakhi-festival-raksha-bandhan-png-image_3830758.jpg" alt="Rakhi">
+  <div class="card">
+    <button class="back" id="goBack">← Back</button>
+    <header>
+      <h1>Happy Raksha Bandhan, my dearest sister 🌼</h1>
+      <p class="subtitle">A promise, a memory and a heart full of love</p>
+    </header>
+    <section class="message">
+      <p>
+        You are the light that brightens my darkest days, the laughter that makes ordinary moments unforgettable.
+        Growing up with you was a beautiful chaos — full of secrets, silly fights, and endless support.
+      </p>
+      <p class="poem">
+        On this Rakhi, I tie not just a thread, but my vow — to keep you safe, to stand by you, and to celebrate every dream you chase.
+        No distance will change what we share; no time will take away these memories. You are my family, my friend, my forever.
+      </p>
+      <p class="closing">
+        Thank you for being uniquely you — kind, stubborn, warm and wonderfully brave. I am blessed to call you my sister.
+        <br/><strong>Always with you,</strong> <em>Your brother</em> ❤️
+      </p>
+    </section>
+    <div class="hearts">
+      <span class="heart">❤</span>
+      <span class="heart">❤</span>
+      <span class="heart">❤</span>
+    </div>
+  </div>
 </div>
 
 <script>
-    function goToPage2() {
-        document.getElementById('page1').classList.add('hidden');
-        setTimeout(() => {
-            document.getElementById('page2').classList.remove('hidden');
-        }, 500);
-    }
+const page1 = document.getElementById('page1');
+const page2 = document.getElementById('page2');
+document.getElementById('openRakhi').addEventListener('click', () => {
+  page1.classList.add('hidden');
+  setTimeout(()=>page2.classList.remove('hidden'),50);
+});
+document.getElementById('goBack').addEventListener('click', () => {
+  page2.classList.add('hidden');
+  setTimeout(()=>page1.classList.remove('hidden'),50);
+});
 </script>
 
 </body>
